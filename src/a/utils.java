@@ -1,16 +1,9 @@
 package a;
 
-import com.google.common.base.CharMatcher;
 import com.google.common.base.Joiner;
-import com.google.common.base.Strings;
-import sun.net.www.content.audio.basic;
 
-import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Scanner;
 
 /**
  * Created by Maxence on 25/02/14.
@@ -28,6 +21,9 @@ public class utils {
         int ascii = (int) theChar;
         if((ascii==39)||(ascii==145)||(ascii==146)){
             return "#";
+        }
+        if((ascii<=57)&&(ascii>=39)){
+            return "";
         }
         if(ascii>122){
             // Special char
@@ -116,7 +112,8 @@ public class utils {
         finalListe.add(possibility);
         }
         // OK maintenant choix des possibilités
-        /*
+
+           /*
         for(int k =0;k<finalListe.size();k++){
             System.out.println(finalListe.get(k));
         }*/

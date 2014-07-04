@@ -1,10 +1,5 @@
 package a;
-import com.google.common.base.Joiner;
-
-import javax.rmi.CORBA.Util;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -26,41 +21,44 @@ public class main {
             System.out.println("2- Encoder du texte brut et écrire dans un fichier");
             System.out.println("3- Encoder à partir d'un fichier");
             System.out.println("4- Encoder à partir d'un fichier et écrire dans un fichier");
-            Scanner sc2 = new Scanner(System.in);
-            String userAnswer2 = sc2.next();
-            sc2.close();
-            Scanner sc3 = new Scanner(System.in);
+            //Scanner sc2 = new Scanner(System.in);
+            String userAnswer2 = sc.next();
+            //sc2.close();
+            //Scanner sc3 = new Scanner(System.in);
             System.out.println("Donnez un entier pour le décallage");
-            int n = sc3.nextInt();
-            sc3.close();
+            int n = sc.nextInt();
+            //sc3.close();
             n=Utils.setNToValable(n);
             if(userAnswer2.equals("1")||userAnswer2.equals("2")){
-                Scanner sc4 = new Scanner(System.in);
+                //Scanner sc4 = new Scanner(System.in);
+                sc.nextLine();
                 System.out.println("Très bien , donnez maintenant une chaine de caractère...");
-                String mae = sc4.nextLine();
-                sc4.close();
+
+                String mae = sc.nextLine();
+                //sc4.close();
                 String encoded=Utils.encodage(mae,n);
                 if(userAnswer2.equals("2")){
-                    Scanner sc5 = new Scanner(System.in);
+                    //Scanner sc5 = new Scanner(System.in);
                     System.out.println("Spécifiez le chemin...");
-                    String path = sc5.nextLine();
-                    sc5.close();
+                    String path = sc.next();
+                    //sc5.close();
                     Utils.ecireFichier(path,encoded);
                 }else{
                     System.out.println(encoded);
                 }
             }else{
-                Scanner sc6 = new Scanner(System.in);
+                //Scanner sc6 = new Scanner(System.in);
+                sc.nextLine();
                 System.out.println("Spécifiez le chemin d'accès...");
-                String path = sc6.nextLine();
-                sc6.close();
+                String path = sc.nextLine();
+                //sc6.close();
                 String mae = Utils.lireFichier(path);
                 String encoded = Utils.encodage(mae,n);
                 if(userAnswer2.equals("4")){
-                    Scanner sc7 = new Scanner(System.in);
+                    //Scanner sc7 = new Scanner(System.in);
                     System.out.println("Spécificiez le chemin du fichier à éditer");
-                    String targetPath = sc7.nextLine();
-                    sc7.close();
+                    String targetPath = sc.nextLine();
+                    //sc7.close();
                     Utils.ecireFichier(targetPath,encoded);
                 }else{
                     System.out.println(encoded);
@@ -72,36 +70,40 @@ public class main {
             System.out.println("2- Décoder du texte brut et écrire dans un fichier");
             System.out.println("3- Décoder à partir d'un fichier");
             System.out.println("4- Décoder à partir d'un fichier et écrire dans un fichier");
-            Scanner sc2 = new Scanner(System.in);
-            String userAnswer2 = sc2.next();
-            sc2.close();
+            //Scanner sc2 = new Scanner(System.in);
+            String userAnswer2 = sc.next();
+            //sc2.close();
             if(userAnswer2.equals("1")||(userAnswer2.equals("2"))){
-                Scanner sc3 = new Scanner(System.in);
+                //Scanner sc3 = new Scanner(System.in);
+                sc.nextLine();
                 System.out.println("Donnez la chaine de caractère à décoder");
-                String mad = sc3.nextLine();
-                sc3.close();
+                String mad = sc.nextLine();
+                //sc3.close();
                 String decoded = Utils.decodage(mad);
                 if(userAnswer2.equals("2")){
-                    Scanner sc4 = new Scanner(System.in);
+                    sc.nextLine();
+                    //Scanner sc4 = new Scanner(System.in);
                     System.out.println("Spécifiez le chemin d'accès...");
-                    String path = sc4.nextLine();
-                    sc4.close();
+                    String path = sc.nextLine();
+                    //sc4.close();
                     Utils.ecireFichier(path,decoded);
                 }else{
                     System.out.println(decoded);
                 }
             }else{
-                Scanner sc3 = new Scanner(System.in);
+                //Scanner sc3 = new Scanner(System.in);
+                sc.nextLine();
                 System.out.println("Spécifiez le chemin d'accès...");
-                String path = sc3.nextLine();
-                sc3.close();
+                String path = sc.nextLine();
+                //sc3.close();
                 String mad = Utils.lireFichier(path);
                 String decoded = Utils.decodage(mad);
                 if(userAnswer2.equals("4")){
-                    Scanner sc4 = new Scanner(System.in);
+                    sc.nextLine();
+                    //Scanner sc4 = new Scanner(System.in);
                     System.out.println("Spécificiez le chemin du fichier à éditer");
-                    String targetPath = sc4.nextLine();
-                    sc4.close();
+                    String targetPath = sc.nextLine();
+                    //sc4.close();
                     Utils.ecireFichier(targetPath,decoded);
                 }else{
                     System.out.println(decoded);
